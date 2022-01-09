@@ -33,12 +33,12 @@ export const createProduct = async (req: Request, res: Response) => {
   res.status(201).json({ product });
 };
 
-// READ PRODUCT
+// READ PRODUCTS
 export const readProducts = async (req: Request, res: Response) => {
   const { limit = 10, page = 1 } = req.body;
   const skip = limit * (page - 1);
-  const categories = await Category.find({ skip, take: limit });
-  res.json({ data: categories });
+  const products = await Product.find({ skip, take: limit });
+  res.json({ data: products });
 };
 
 // UPDATE PRODUCT
